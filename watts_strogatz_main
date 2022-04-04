@@ -6,19 +6,32 @@ Created on Wed Mar 30 20:22:40 2022
 @author: monamez
 """
 
-from matplotlib import pyplot
+from matplotlib import pyplot as plt
 import numpy as np
 import networkx as nx
+
 
 import sys 
 sys.path.append("/Users/monamez/Documents/GitHub/template_watts_strogatz/watts_strogatz_MA.py")
 import watts_strogatz_MA as wsa
 
-G = wsa.watts_strogatz(50, 5, 1)
+n= 50
+k = 5
+p = 0.1
 
-fig,ax = pyplot.subplots(1,1, figsize=(6,6), constrained_layout=True)
+#Creating Arbitrary Graph
+G = wsa.watts_strogatz(n, k, p)
+fig,ax = plt.subplots(1,1, figsize=(6,6), constrained_layout=True)
 
-nx.draw_circular(G, ax=ax)
 
-fig.show()
+#Graphing Clustering Coefficient
+trials = 100
+clustering,x =wsa.average_clustering(n,k,trials)
+
+x = np.array(x)
+y = np.array(clustering)
+
+plt.plot(x, y)
+plt.show()
+
 
