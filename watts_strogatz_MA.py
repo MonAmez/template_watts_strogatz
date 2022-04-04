@@ -7,12 +7,13 @@ Created on Wed Mar 30 20:15:13 2022
 """
 
 
-import networkx
+import networkx as nx
 from matplotlib import pyplot
 import numpy as np
+import random 
 
-def watts_strogatz(n,k,beta):
-    G = networkx.Graph()
+def watts_strogatz(n,k,beta = 0.5):
+    G = nx.Graph()
     for i in range(n):
         G.add_node(i)
 
@@ -55,3 +56,14 @@ def watts_strogatz(n,k,beta):
         #
     #
     return G
+
+def average_clustering(n,k, trials=1000):
+   Gzero = watts_strogatz(n, k,0)
+   clustering_Gzero = nx.average_clustering(Gzero)
+   coefficients = []
+   x = []
+   for i in range(trials):
+       G = watts_strogatz(n, k,i/trials)
+       coefficients.append( nx.average_clustering(G)/clustering_Gzero)
+       x.append(i/trials)
+   return coefficients,x
