@@ -65,6 +65,6 @@ def average_clustering(n,k, trials=1000):
    for i in range(trials):
        G = watts_strogatz(n, k, 10**(-4 + 4*i/(trials-1)))
        clustering_coefficients.append(nx.average_clustering(G)/clustering_Gzero)
-       x.append(i/trials)
-       print(i/trials)
-   return coefficients,x
+       x.append(10**(-4 + 4*i/(trials-1)))
+   return clustering_coefficients,x
+

@@ -14,7 +14,7 @@ import networkx as nx
 import sys 
 import os
 
-filename = __file__
+filename = '__file__'
 foldername = os.path.dirname( filename )
 
 sys.path.append( foldername )
@@ -34,9 +34,9 @@ fig,ax = plt.subplots(1,1, figsize=(6,6), constrained_layout=True)
 
 #Graphing Clustering Coefficient
 trials = 100
-clustering,x =wsa.average_clustering(n,k,trials)
+clustering, x =wsa.average_clustering(n,k,trials)
 
-x = np.array(x)
+xval = np.array(x)
 y = np.array(clustering)
 
 plt.plot(x, y)
