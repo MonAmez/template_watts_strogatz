@@ -12,7 +12,15 @@ import networkx as nx
 
 
 import sys 
-sys.path.append("/Users/monamez/Documents/GitHub/template_watts_strogatz/watts_strogatz_MA.py")
+import os
+
+filename = __file__
+foldername = os.path.dirname( filename )
+
+sys.path.append( foldername )
+
+
+
 import watts_strogatz_MA as wsa
 
 n= 50
@@ -32,6 +40,7 @@ x = np.array(x)
 y = np.array(clustering)
 
 plt.plot(x, y)
+plt.xscale('log')
 plt.show()
 
 
