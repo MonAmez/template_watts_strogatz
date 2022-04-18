@@ -6,7 +6,7 @@ Created on Wed Mar 30 20:15:13 2022
 @author: monamez
 """
 
-
+ 
 import networkx as nx
 from matplotlib import pyplot
 import numpy as np
@@ -53,8 +53,6 @@ def watts_strogatz(n,k,beta = 0.5):
                 
                 G.remove_edge(u,v)
                 G.add_edge(u, vnew)
-        #
-    #
     return G
 
 def average_clustering(n,k, trials=1000):

@@ -18,8 +18,7 @@ filename = '__file__'
 foldername = os.path.dirname( filename )
 
 sys.path.append( foldername )
-
-
+sys.path.append("/Users/monamez/Documents/GitHub/template_watts_strogatz/watts_strogatz_MA.py")
 
 import watts_strogatz_MA as wsa
 
@@ -34,6 +33,7 @@ fig,ax = plt.subplots(1,1, figsize=(6,6), constrained_layout=True)
 
 #Graphing Clustering Coefficient
 trials = 100
+
 clustering, x =wsa.average_clustering(n,k,trials)
 
 xval = np.array(x)
@@ -41,6 +41,13 @@ y = np.array(clustering)
 
 plt.plot(x, y)
 plt.xscale('log')
+
+clustering,x =wsa.average_clustering(n,k,trials)
+
+x = np.array(x)
+y = np.array(clustering)
+
+plt.plot(x, y)
 plt.show()
 
 
